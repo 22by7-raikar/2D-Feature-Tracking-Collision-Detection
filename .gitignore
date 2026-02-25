@@ -1,0 +1,54 @@
+# Build artifacts
+build/
+CMakeFiles/
+*.o
+*.so
+*.a
+*.lib
+
+# Executables
+2D_feature_tracking
+*.exe
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Generated log and artefact files
+execution_log.txt
+keypoint_log.csv
+match_log.csv
+timing_log.csv
+
+# Generated visualisation images (regenerate with --save flag)
+images/outputs/match_*.png
+# Keep the two sample images referenced in the README
+!images/outputs/match_FAST_ORB_frames_0_1.png
+!images/outputs/match_SHITOMASI_ORB_frames_0_1.png
+
+# Temporary files
+*.tmp
+*.bak
+.temp/
+
+# CMake
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# OS specific
+.AppleDouble
+.LSOverride
+Thumbs.db

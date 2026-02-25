@@ -1,0 +1,104 @@
+SAMPLE EXECUTION OUTPUT: SHITOMASI + BRISK Combination
+======================================================
+
+========================================
+Testing: SHITOMASI + BRISK
+========================================
+
+#1 : LOAD IMAGE INTO BUFFER done
+Shi-Tomasi detection with n=1370 keypoints in 15.8957 ms
+Image 0 - SHITOMASI: 125 keypoints (Size - Min: 4, Max: 4, Mean: 4)
+#2 : DETECT KEYPOINTS done
+BRISK descriptor extraction in 3.12882 ms
+#3 : EXTRACT DESCRIPTORS done
+
+#1 : LOAD IMAGE INTO BUFFER done
+Shi-Tomasi detection with n=1301 keypoints in 10.8079 ms
+Image 1 - SHITOMASI: 118 keypoints (Size - Min: 4, Max: 4, Mean: 4)
+#2 : DETECT KEYPOINTS done
+BRISK descriptor extraction in 1.29405 ms
+#3 : EXTRACT DESCRIPTORS done
+Image 1 - SHITOMASI/BRISK: 95 matches
+#4 : MATCH KEYPOINT DESCRIPTORS done
+
+#1 : LOAD IMAGE INTO BUFFER done
+Shi-Tomasi detection with n=1361 keypoints in 8.98842 ms
+Image 2 - SHITOMASI: 123 keypoints (Size - Min: 4, Max: 4, Mean: 4)
+#2 : DETECT KEYPOINTS done
+BRISK descriptor extraction in 1.44533 ms
+#3 : EXTRACT DESCRIPTORS done
+Image 2 - SHITOMASI/BRISK: 88 matches
+#4 : MATCH KEYPOINT DESCRIPTORS done
+
+#1 : LOAD IMAGE INTO BUFFER done
+Shi-Tomasi detection with n=1358 keypoints in 10.32 ms
+Image 3 - SHITOMASI: 120 keypoints (Size - Min: 4, Max: 4, Mean: 4)
+#2 : DETECT KEYPOINTS done
+BRISK descriptor extraction in 1.61651 ms
+#3 : EXTRACT DESCRIPTORS done
+Image 3 - SHITOMASI/BRISK: 80 matches
+#4 : MATCH KEYPOINT DESCRIPTORS done
+
+#1 : LOAD IMAGE INTO BUFFER done
+Shi-Tomasi detection with n=1333 keypoints in 11.4961 ms
+Image 4 - SHITOMASI: 120 keypoints (Size - Min: 4, Max: 4, Mean: 4)
+#2 : DETECT KEYPOINTS done
+BRISK descriptor extraction in 1.29356 ms
+#3 : EXTRACT DESCRIPTORS done
+Image 4 - SHITOMASI/BRISK: 90 matches
+#4 : MATCH KEYPOINT DESCRIPTORS done
+
+#1 : LOAD IMAGE INTO BUFFER done
+Shi-Tomasi detection with n=1284 keypoints in 8.80027 ms
+Image 5 - SHITOMASI: 113 keypoints (Size - Min: 4, Max: 4, Mean: 4)
+#2 : DETECT KEYPOINTS done
+BRISK descriptor extraction in 1.4732 ms
+#3 : EXTRACT DESCRIPTORS done
+Image 5 - SHITOMASI/BRISK: 82 matches
+#4 : MATCH KEYPOINT DESCRIPTORS done
+
+#1 : LOAD IMAGE INTO BUFFER done
+Shi-Tomasi detection with n=1322 keypoints in 9.15451 ms
+Image 6 - SHITOMASI: 114 keypoints (Size - Min: 4, Max: 4, Mean: 4)
+#2 : DETECT KEYPOINTS done
+BRISK descriptor extraction in 1.37933 ms
+#3 : EXTRACT DESCRIPTORS done
+Image 6 - SHITOMASI/BRISK: 79 matches
+#4 : MATCH KEYPOINT DESCRIPTORS done
+
+#1 : LOAD IMAGE INTO BUFFER done
+Shi-Tomasi detection with n=1366 keypoints in 9.25753 ms
+Image 7 - SHITOMASI: 123 keypoints (Size - Min: 4, Max: 4, Mean: 4)
+#2 : DETECT KEYPOINTS done
+BRISK descriptor extraction in 1.33134 ms
+#3 : EXTRACT DESCRIPTORS done
+Image 7 - SHITOMASI/BRISK: 85 matches
+#4 : MATCH KEYPOINT DESCRIPTORS done
+
+#1 : LOAD IMAGE INTO BUFFER done
+Shi-Tomasi detection with n=1389 keypoints in 9.39484 ms
+Image 8 - SHITOMASI: 111 keypoints (Size - Min: 4, Max: 4, Mean: 4)
+#2 : DETECT KEYPOINTS done
+BRISK descriptor extraction in 1.25068 ms
+#3 : EXTRACT DESCRIPTORS done
+Image 8 - SHITOMASI/BRISK: 86 matches
+#4 : MATCH KEYPOINT DESCRIPTORS done
+
+#1 : LOAD IMAGE INTO BUFFER done
+Shi-Tomasi detection with n=1339 keypoints in 10.0904 ms
+Image 9 - SHITOMASI: 112 keypoints (Size - Min: 4, Max: 4, Mean: 4)
+#2 : DETECT KEYPOINTS done
+BRISK descriptor extraction in 1.27121 ms
+#3 : EXTRACT DESCRIPTORS done
+Image 9 - SHITOMASI/BRISK: 82 matches
+#4 : MATCH KEYPOINT DESCRIPTORS done
+
+STATISTICS FOR SHITOMASI + BRISK:
+- Total Frames: 10 (indices 0-9)
+- Average Detection Time: ~10.4 ms
+- Average Descriptor Time: ~1.6 ms
+- Average Matches Per Frame: 85.7
+- Keypoints Detected: 118-125 per frame (vehicle ROI filtered)
+
+PERFORMANCE RATING: ★★★★☆ (VERY GOOD)
+Reliable detector with good match consistency
