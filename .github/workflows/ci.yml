@@ -2,32 +2,28 @@ name: CI
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [master, main]
   pull_request:
-    branches: [ master, main ]
 
 jobs:
-  build:
-    name: Build on Ubuntu
+  build-and-run:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            cmake \
-            build-essential \
-            libopencv-dev
-
-      - name: Configure CMake
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+        run: sudo apt-get update && sudo apt-get install -y cmake build-essential libopencv-dev
 
       - name: Build
-        run: cmake --build build --parallel $(nproc)
+        run: |
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --parallel
 
-      - name: Verify binary exists
-        run: test -f build/2D_feature_tracking
+      - name: Run benchmark on the bundled KITTI frames
+        run: ./build/2D_feature_tracking --out-dir ci-results
+
+      - name: Check results
+        run: |
+          # 21 combinations x 10 frames + header
+          test "$(wc -l < ci-results/results.csv)" -eq 211
+          python3 scripts/analyze.py --csv ci-results/results.csv

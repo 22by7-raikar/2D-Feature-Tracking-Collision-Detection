@@ -1,41 +1,22 @@
-cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.10)
+project(2D_feature_tracking CXX)
 
-project(2D_feature_tracking)
+find_package(OpenCV 4 REQUIRED COMPONENTS core imgproc imgcodecs features2d flann
+                     OPTIONAL_COMPONENTS xfeatures2d)
 
-# Apply -Wall to all targets in this directory
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
-
-# Use the manually built OpenCV from /tmp/opencv
-set(OpenCV_DIR /tmp/opencv/build)
-set(CMAKE_PREFIX_PATH /tmp/opencv/build ${CMAKE_PREFIX_PATH})
-
-find_package(OpenCV 4.2 QUIET PATHS /tmp/opencv/build NO_DEFAULT_PATH)
-
-if(NOT OpenCV_FOUND)
-    message(STATUS "OpenCV from /tmp not found, using system OpenCV")
-    find_package(OpenCV 4.1 REQUIRED)
-endif()
-
-include_directories(${OpenCV_INCLUDE_DIRS})
-include_directories(/tmp/opencv_contrib/modules/xfeatures2d/include)
-include_directories(/tmp/opencv/include)
-
-link_directories(${OpenCV_LIBRARY_DIRS})
-link_directories(/tmp/opencv/build/lib)
-add_definitions(${OpenCV_DEFINITIONS})
-
-# Main executable
-add_executable(2D_feature_tracking src/matching2D.cpp src/main.cpp)
-
-# Require C++17 scoped to this target (replaces the old global add_definitions)
+add_executable(2D_feature_tracking src/main.cpp src/features.cpp src/ttc.cpp)
 target_compile_features(2D_feature_tracking PRIVATE cxx_std_17)
+target_compile_options(2D_feature_tracking PRIVATE -Wall -Wextra)
+target_include_directories(2D_feature_tracking PRIVATE ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(2D_feature_tracking PRIVATE ${OpenCV_LIBS})
 
-# Link to xfeatures2d if available
-find_library(XFEATURES2D_LIB opencv_xfeatures2d PATHS /tmp/opencv/build/lib NO_DEFAULT_PATH)
-if(XFEATURES2D_LIB)
-    message(STATUS "Found xfeatures2d library: ${XFEATURES2D_LIB}")
-    target_link_libraries (2D_feature_tracking ${OpenCV_LIBRARIES} ${XFEATURES2D_LIB})
+# Default data/output location is the project root, so the binary can be run from anywhere.
+target_compile_definitions(2D_feature_tracking PRIVATE
+    PROJECT_ROOT="${CMAKE_SOURCE_DIR}"
+    HAS_XFEATURES2D=$<BOOL:${OpenCV_xfeatures2d_FOUND}>)
+
+if(OpenCV_xfeatures2d_FOUND)
+    message(STATUS "xfeatures2d found: BRIEF and FREAK descriptors enabled")
 else()
-    message(STATUS "xfeatures2d library not found, linking without it")
-    target_link_libraries (2D_feature_tracking ${OpenCV_LIBRARIES})
+    message(STATUS "xfeatures2d not found: BRIEF and FREAK descriptors disabled")
 endif()
