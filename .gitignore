@@ -1,0 +1,8 @@
+build/
+__pycache__/
+.vscode/
+.idea/
+.DS_Store
+
+# Match images from --save (regenerate locally)
+results/matches/
